@@ -4,14 +4,14 @@
 
 ### file structure
 
-molinio-posts
-|
-|- post-folder/ (use unix valid folder name)
-|   |
-|   |- post.md (Markdown file)
-|   |- meta.conf (Post meta data)
-|   |- post-image-1.jpg
-|   |- post-image-2.png
+    molinio-posts
+    |
+    |- post-folder/ (use unix valid folder name)
+    |   |
+    |   |- post.md (Markdown file)
+    |   |- meta.conf (Post meta data)
+    |   |- post-image-1.jpg
+    |   |- post-image-2.png
 
 ### meta.conf content
 
