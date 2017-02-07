@@ -5,7 +5,7 @@
   post_excerpt: ""
   layout: post
   permalink: >
-    http://molinio.jaystack.com/test-post-post-test/
+    http://molinio.jaystack.com/test-post-post-test-000/
   published: true
   tags:
     - Cordova
