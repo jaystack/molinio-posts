@@ -25,7 +25,7 @@
 - [Plugin page on wordpress.org](https://hu.wordpress.org/plugins/wp-github-sync/)
 - [Github page](https://github.com/mAAdhaTTah/wordpress-github-sync)
 
-## Media upload trads
+## Media upload issue
 
 - [Support for syncing wp-uploads #13](https://github.com/mAAdhaTTah/wordpress-github-sync/issues/13)
 
