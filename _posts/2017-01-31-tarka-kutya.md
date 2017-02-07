@@ -7,7 +7,9 @@ post_excerpt: ""
 layout: post
 permalink: http://molinio.jaystack.com/tarka-kutya/
 published: true
-tags: [ ]
+tags:
+  - Tarka
+  - Kutya
 categories:
   - Get started
   - Molinio
