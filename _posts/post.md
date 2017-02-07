@@ -1,7 +1,7 @@
  ---
   post_title: Test Post
   author: Ben
-  post_date: 2017-01-31 12:00:00
+  post_date: 2017-02-07 12:00:00
   post_excerpt: ""
   layout: post
   permalink: >
