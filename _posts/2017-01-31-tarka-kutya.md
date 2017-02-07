@@ -8,6 +8,7 @@ layout: post
 permalink: http://molinio.jaystack.com/tarka-kutya/
 published: true
 tags:
+  - big
   - Kutya
   - Tarka
 categories:
