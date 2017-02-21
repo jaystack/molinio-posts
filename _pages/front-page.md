@@ -20,17 +20,13 @@ It integrates platform services, such as version control, logging, testing, issu
 
 > It saves you time, so you can do more coding. 
 
-### Serverless architecture for development
-
-<img src="http://molinio.jaystack.com/wp-content/uploads/2017/02/serverless2.png" alt="Serverless architecture for development">
+### ![Serverless architecture for development](http://molinio.jaystack.com/wp-content/uploads/2017/02/serverless2.png) Serverless architecture for development
 
 Besides being an awesome painkiller, Molinio is a powerful tool for agile teams and complex, rather large projects. The project manager is off-site for a week with a weak laptop? The team is on multiple continents? The architect is commuting? Your laptop is three years old and burns your thighs running 30 microservices? With a single click, you can create a cloud-based development environment for your project: the parts you’re not editing yourself or the elements you wouldn’t want to have locally will reside in your dedicated cloud infrastructure. The parts you’re developing can still be placed locally. Or not. It’s up to you. 
 
 > It saves you resources, so you can achieve more. 
  
-### Templates and rules for corporate developments
- 
- <img src="http://molinio.jaystack.com/wp-content/uploads/2017/02/templates2.png" alt="Templates and rules for corporate developments">
+### ![Templates and rules for corporate developments](http://molinio.jaystack.com/wp-content/uploads/2017/02/templates2.png) Templates and rules for corporate developments
 
 Let’s be honest: Microservices and JavaScript is cool, but keeping corporate rulesets and forcing templates on developers can be tough. In Molinio, you can define these standards and every projects that’s created will follow. 
 It gives you standards, so your team can be compliant.
