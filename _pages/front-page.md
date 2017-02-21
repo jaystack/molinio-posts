@@ -12,7 +12,8 @@ categories: [ ]
 ---
 ### Control center for microservices developers 
 
-Molinio is a control center for microservices developers who, like us, really hate the multitude and variety of infrastructure-related tasks that surround the real fun: Development. 
+Molinio is a control center for microservices developers who, like us, really hate the multitude and variety of infrastructure-related tasks that surround the real fun: **Development**. 
+
 It integrates platform services, such as version control, logging, testing, issue tracking, building and deployment into a single, clean user interface, so developers don’t need tens of different apps, browser tabs and command windows to manage their microservices. Developers only need Molinio, as it provides direct visual feedback on the status of different aspects of microservices development and the infrastructure. 
 
 > It saves you time, so you can do more coding. 
