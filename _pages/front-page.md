@@ -19,6 +19,6 @@ top_content:
 ---
 Molinio is a control center for microservices developers to simplify infrastructure-related tasks in local, container, or cloud environments. Molinio gives instant visual feedback on the status of infrastructure elements, issues, changes, builds, logs, and results. This simplifies your development work, liberating you from the different apps, command windows, and browser tabs often used to stay on top of your projects. Molinio also provides a cloud-extended developer environment, with seamless transitions from local to cloud environments. This microservices development productivity tool enables you to efficiently work on projects with hundreds of microservices, even on low-performance computers. 
 
-<div class="front-video">
+<div class="front-video dark">
 https://youtu.be/Tjo3cMEuRUI
 </div>
