@@ -24,7 +24,7 @@ categories: [ ]
 <div class="panel-body">
 <img src="http://localhost:8060/wp-content/uploads/2017/03/molinio_getstarted.jpg" alt="" width="600" height="320" class="aligncenter size-full wp-image-2135" />
 <h4>Getting started</h4>
-<p><b><a href="/get-started">Learn how to use molinio <i class="fa fa-chevron-right" aria-hidden="true"></i></a></b></p>
+<p><b><a href="/the-graceful-microservice-lifecycle/">Learn how to use molinio <i class="fa fa-chevron-right" aria-hidden="true"></i></a></b></p>
  
 </div>
 </div>
