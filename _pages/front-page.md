@@ -10,7 +10,10 @@ published: true
 tags: [ ]
 categories: [ ]
 top_title:
-  - ""
+  - >
+    A control center for building and
+    managing your microservices
+    applications.
 top_content:
   - |
     Early access available!
