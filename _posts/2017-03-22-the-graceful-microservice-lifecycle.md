@@ -1,7 +1,7 @@
 ---
 ID: 2162
 post_title: The graceful microservice lifecycle
-author: lacus
+author: Peter Hauszknecht
 post_date: 2017-03-22 14:28:42
 post_excerpt: ""
 layout: post
