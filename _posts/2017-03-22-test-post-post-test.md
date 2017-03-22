@@ -1,12 +1,11 @@
 ---
-ID: 1953
+ID: 2176
 post_title: 'Test post &#8211; Post test'
 author: lacus
-post_date: 2017-01-31 15:31:52
+post_date: 2017-03-22 14:18:02
 post_excerpt: ""
 layout: post
-permalink: >
-  http://molinio.jaystack.com/test-post-post-test/
+permalink: http://molin.io/test-post-post-test/
 published: true
 tags: [ ]
 categories:

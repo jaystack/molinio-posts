@@ -1,11 +1,11 @@
 ---
-ID: 1942
+ID: 2174
 post_title: Tarka macska
 author: lacus
-post_date: 2017-01-31 15:01:58
+post_date: 2017-03-22 14:18:02
 post_excerpt: ""
 layout: post
-permalink: http://molinio.jaystack.com/tarka-kutya/
+permalink: http://molin.io/tarka-macska/
 published: true
 tags:
   - Kutya
