@@ -19,6 +19,7 @@ By downloading Molinio you specifically accept all terms of this NDA.
 Company shall provide Tester with a copy of Software and any necessary documentation and instruct Tester on how to use it and what test data is desired by Company. Upon satisfactory completion of the testing.
 
 Company shall furnish Tester with one free copy of the production version of Software, contingent upon Company's decision to proceed with production of Software.
+
 #### 2. Tester's Obligations
 Tester shall test Software under normally expected operating conditions in Tester's environment during the test period. Tester shall gather and report test data as asked by Company on the webpage from which this NDA was opened. Tester understands that Company might update or stop the software for inspection, modifications and maintenance.
 #### 3. Software a Trade Secret
