@@ -84,7 +84,7 @@ const system = new System()
   .add(&#039;mongodb&#039;, MongoDb()).dependsOn({component: &#039;config&#039;, source: &#039;mongodb&#039;, as: &#039;mongodbConfig&#039;}, &#039;logger&#039;)
 ```
 
-Ebben a példában a `mongodb` komponens a `config`-ból csak a `mongodb` részt kapja meg `mongodbConfig` néven.
+The `MongoDB` component only gets the `MongoDB` part from the `config`, under the name `mongodbConfig`.
 
 ### Lifecycle methods
 
