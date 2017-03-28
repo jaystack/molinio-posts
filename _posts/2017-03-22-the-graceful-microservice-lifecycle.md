@@ -230,4 +230,4 @@ The main purpose of the CorpJS product family is to publish standards which cove
 
 Every generator uses the [generator-corpjs-ts](https://www.npmjs.com/package/generator-corpjs-ts) base generator, which creates a simple TypeScript-based boilerplate.
 
-We will soon make some vanilla JS-based generators available as well.4
+We will soon make some vanilla JS-based generators available as well.
