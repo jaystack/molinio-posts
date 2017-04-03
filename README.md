@@ -1,5 +1,11 @@
 # molinio-posts
 
+## Howto
+
+### Create/edit posts
+
+To create a new post, place a markdown (.md) file to \_posts folder 
+ 
 ## Post schema
 
 ~~~
