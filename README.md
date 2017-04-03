@@ -4,8 +4,10 @@
 
 ### Create/edit posts
 
-To create a new post, place a markdown (.md) file to \_posts folder 
- 
+To create a new post, place a markdown (.md) file to \_posts folder, for scheme see below. Github sends the committed posts to molinio site wia webhook.
+
+To edit existing posts, open its markdown file in text editor the post's markdown file (or use github edit this file function), after commit github sends the changes to molinio website.
+
 ## Post schema
 
 ~~~
