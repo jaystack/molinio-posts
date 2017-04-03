@@ -1,6 +1,6 @@
 ---
 ID: 4
-post_title: WP Meta SEO 404 Page
+post_title: 404 error page
 author: lacus
 post_date: 2016-12-19 10:31:02
 post_excerpt: metaseo_404_page
