@@ -14,6 +14,7 @@ tags: [ ]
 categories:
   - Microservices
 ---
+
 ### Introduction
 In Molinio, we can build our own microservices application. With help of templates we can create projects that use React, Amqp and Rest library in a few moments, in JavaScript and TypeScript languages. In addition we may create RabbitMq and MongoDB servers, if necessary. With Molinio we create a simple TODO application. The finished projects can be found in the GitHub links below:
 > link:
@@ -395,3 +396,96 @@ In the browser you may see the application.
 > **Hint:** Use Earth icon in Molinio
 
 ![enter image description here](http://image.prntscr.com/image/368b098c0c2c4b89b131cfeccecb1940.png)
+
+### Storing tasks
+
+Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the “infra-todo-mongodb”. 
+![enter image description here](http://image.prntscr.com/image/7610dee07d9447a895d672e34d33e524.png)
+Create the Rest project too, named “service-todo-data” on the 3001 port. Do not forget to tick MongoDB as dependency.
+![enter image description here](http://image.prntscr.com/image/4699597d31f14e35af4c934f98d8caa9.png)
+Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: „npm i corpjs-endpoints --save”, „npm i corpjs-mongodb --save”. (Hint: In Molinio by clicking the console icon, the console opens in the project) Afterwards import these into the “system.ts” file.
+ 
+```javascript
+.add('endpoints', Endpoints()).dependsOn({ component: 'config', source: 'endpoints', as: 'config' })
+.add('mongodb', MongoDb()).dependsOn('endpoints', { component: 'config', source: 'mongodb', as: 'config' })
+```
+
+Add MongoDB to Routers dependencies.
+```javascript
+.add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb')
+```
+
+Add these to complete the config file (./config/default.js)
+```javascript
+    mongodb: {
+        db: "todo"
+    },
+    endpoints: {
+        endpointsFilePath: "system-endpoints.json"
+    }
+```
+
+Next up “Router.ts”. Add mongodb to the Deps interface.
+```javascript
+interface Deps {
+  config: any
+  logger: winston.LoggerInstance
+  app: express.Application
+  mongodb: any
+  rabbitSender: any
+}
+```
+
+Create a MongoDB collection in the start function and insert the endpoints to the code after the userCollecton variable.
+```javascript
+const usersCollection = deps.mongodb.collection('TodoList')
+deps.app.get('/set/newTodo/:name', (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  usersCollection.insertOne({ "Name": req.params['name'], "Completed": false })
+  res.sendStatus(200)
+})
+
+deps.app.get('/set/ready/:name/:status', (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  try {
+    usersCollection.updateOne(
+      { "Name": req.params['name'] },
+      { $set: { "Completed": req.params['status'] } }
+    );
+  } catch (e) {
+    console.log(e)
+  }
+  res.sendStatus(200)
+})
+
+deps.app.get('/get/todos', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype')
+  usersCollection.find().toArray()
+    .then(results => {
+      res.setHeader('Content-Type', 'application/json');
+      res.json(results)
+    })
+    .catch(err => res.sendStatus(500))
+})
+```
+
+As the last step, use these endpoints in the “app-todo” project. Insert these codes after the ‘ADD_TODO’ and ‘TOGGLE_TODO’ events:
+```javascript
+request.get('http://localhost:3007/set/ready/' + state.text + "/" + !state.completed)  //TOGLE_TODO
+request.get('http://localhost:3007/set/newTodo/' + action.text)  //ADD_TODO
+```
+Put this code to index.tsx file. When the application starts, this code will load in tasks from the database.
+```javascript
+request('http://localhost:3001/get/todos', function(error, response, body) {  
+	if (error) return
+	const todoList = JSON.parse(body) todoList.map((item, idx) => {  
+		store.dispatch(loadTodo(item.Name, item.Completed))  
+	})  
+});  
+```
+
+Done! Now every modification will be saved to the database.
+
+### Save changes to history file
