@@ -3,7 +3,7 @@ ID: 2216
 post_title: >
   Creating Todo application from Molinio
   templates
-author: Norbert Nemeth
+author: Nemeth
 post_date: 2017-04-21 10:00:55
 post_excerpt: ""
 layout: post
@@ -16,7 +16,7 @@ categories:
 ---
 
 ### Introduction
-In Molinio, we can build our own microservices application. With help of templates we can create projects that use React, Amqp and Rest library in a few moments, in JavaScript and TypeScript languages.. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
+Molinio provides a great ability to create a skeleton of a project (template) using ReactJS with AMQP or REST templates in both JavaScript or TypeScript languages. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
 > **GitHub:**
 > app-todo: [link](https://github.com/norbertnemeth/app-todo)
 > service-todo-data: [link](https://github.com/norbertnemeth/service-todo-data)
@@ -25,16 +25,16 @@ In Molinio, we can build our own microservices application. With help of templat
 >  **Extra:** Open TODO microservice project in Molinio with this productManifest file: [link](https://github.com/jaystack/molinio-productdefinitions/tree/master/Todo)
 
 ### First steps
-As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the „Start Page” and choose the „Select folder and Create project”. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick „React Application (TS)” template. Fill the fields as it is seen below:
+As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the `Start Page` and choose the `Select folder and Create project`. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick `React Application (TS)` template. Fill the fields as it is seen below:
 
 
 ![enter image description here](http://image.prntscr.com/image/aeea8d5eed94448c8f982ea1f6b4c941.png)
 
-By clicking „Add Project” the template starts to form. The process may take a few minutes, because of the npm intallion. After the project is form run it with the „Start” button and select „Watch” option in „Build” button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with it’s icon and take a look at project just made.
+By clicking `Add Project` the template starts to form. The process may take a few minutes, because of the npm intallion. After the project is form run it with the `Start` button and select `Watch` option in `Build` button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with it’s icon and take a look at project just made.
 
 ![enter image description here](http://image.prntscr.com/image/5aeb12c669f94a4f966b5278e75e1d04.png)
 
-This is a well constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: http://molin.io/the-graceful-microservice-lifecycle/.) Delete these files in src folder: „./component/Counter.tsx, ./component/Counter.scss, ./reducers/counter.ts”. Firstly we need to make „actions” and „reducers”. Now place this code into „actionCreators.ts” file.
+This is a well constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: [link](http://molin.io/the-graceful-microservice-lifecycle/).) Delete these files in src folder: `./component/Counter.tsx`, `./component/Counter.scss`, `./reducers/counter.ts`. Firstly we need to make `actions` and `reducers`. Now place this code into `actionCreators.ts` file.
 
 ```javascript
 let nextTodoId = 0;  
@@ -131,7 +131,7 @@ export default combineReducers({
 
 ```
 
-Now we can make the components, three of them to be precise. “AddTodo” contains the form. “TodoList” contains the list of tasks. “Footer” contains a filter, that allows switching between tasks according to there state. Create these files into the “components” folder:
+Now we can make the components, three of them to be precise. `AddTodo` contains the form. `TodoList` contains the list of tasks. `Footer` contains a filter, that allows switching between tasks according to there state. Create these files into the `components` folder:
 
 ```javascript
 //AddTodo.tsx
@@ -331,7 +331,7 @@ const FilterLink = connect(
 )(Link);
 
 ```
-Finnaly setup these as it is below in the “Application.tsx” file:
+Finnaly setup these as it is below in the `Application.tsx` file:
 ```javascript
 require('./Application.scss')
 import * as React from 'react';
@@ -357,7 +357,7 @@ export default class Application extends React.Component<any, any> {
 }
 ```
 
-For the application look nice, insert to following into “Application.scss”.
+For the application look nice, insert to following into `Application.scss`.
 ```javascript
 .application {
 
@@ -389,7 +389,7 @@ li {
     list-style-type: circle;
 }
 ```
-We need Bootstap CSS, therefore insert to following link into the head of “index.html”.
+We need Bootstap CSS, therefore insert to following link into the head of `index.html`.
 
 ```javascript
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -402,11 +402,13 @@ In the browser you may see the application.
 
 ### Storing tasks
 
-Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the “infra-todo-mongodb”. 
+Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the `infra-todo-mongodb`. 
 ![enter image description here](http://image.prntscr.com/image/7610dee07d9447a895d672e34d33e524.png)
-Create the Rest project too, named “service-todo-data” on the 3001 port. Do not forget to tick MongoDB as dependency.
+Create the Rest project too, named `service-todo-data` on the `3001` port. Do not forget to tick MongoDB as dependency.
 ![enter image description here](http://image.prntscr.com/image/4699597d31f14e35af4c934f98d8caa9.png)
-Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: „npm i corpjs-endpoints --save”, „npm i corpjs-mongodb --save”. (Hint: In Molinio by clicking the console icon, the console opens in the project) Afterwards import these into the “system.ts” file.
+Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: `npm i corpjs-endpoints --save`, `npm i corpjs-mongodb --save`. Afterwards import these into the “system.ts” file.
+
+> **Hint:** In Molinio by clicking the console icon, the console opens in the project
  
 ```javascript
 .add('endpoints', Endpoints()).dependsOn({ component: 'config', source: 'endpoints', as: 'config' })
@@ -474,12 +476,12 @@ deps.app.get('/get/todos', (req, res) => {
 })
 ```
 
-As the last step, use these endpoints in the “app-todo” project. Insert these codes after the ‘ADD_TODO’ and ‘TOGGLE_TODO’ events:
+As the last step, use these endpoints in the `app-todo` project. Insert these codes after the `ADD_TODO` and `TOGGLE_TODO` events:
 ```javascript
 request.get('http://localhost:3001/set/ready/' + state.text + "/" + !state.completed)  //TOGLE_TODO
 request.get('http://localhost:3001/set/newTodo/' + action.text)  //ADD_TODO
 ```
-Put this code to index.tsx file. When the application starts, this code will load in tasks from the database.
+Put this code to `index.tsx` file. When the application starts, this code will load in tasks from the database.
 ```javascript
 request('http://localhost:3001/get/todos', function(error, response, body) {  
 	if (error) return
@@ -492,7 +494,7 @@ request('http://localhost:3001/get/todos', function(error, response, body) {
 Done! Now every modification will be saved to the database.
 
 ### Save changes to history file
-Next project will save all incoming message to the history file. The type of this project is Amqp and this requires a RabbitMQ server. Firstly, create a RabbitMQ database named the “infra-todo-rabbitmq”.
+Next project will save all incoming message to the history file. The type of this project is Amqp and this requires a RabbitMQ server. Firstly, create a RabbitMQ database named the `infra-todo-rabbitmq`.
 ![enter image description here](http://image.prntscr.com/image/2701983e4a194e8b98ac8704d2bb6b07.png)
 
 After the previous is done, make a Amqp project:
@@ -504,7 +506,7 @@ messaging: {
 	requestQueue: 'requests'  
 }
 ```
-Create a simple function into Consumer.ts file, wich will create the history files when it does not exists.
+Create a simple function into `Consumer.ts` file, wich will create the history files when it does not exists.
 ```javascript
 async function investigateFileLocation() {  
 	const exists = fs.existsSync('./history.txt') if (!exists) {  
@@ -530,7 +532,7 @@ Implement a message save function.
 	fs.appendFileSync('./history.txt', moment().format('llll') + ' - ' + request.msg + '\r\n')  
 ```
 
-When either endpoints called, the send a message to Rabbit. Implement this code. We need to the “corpjs-amqp” module. (“npm i corpjs-amqp --save”) Create the file named RabbitSender.ts in “service-todo-data” project.
+When either endpoints called, the send a message to Rabbit. Implement this code. We need to the `corpjs-amqp` module. (`npm i corpjs-amqp --save`) Create the file named RabbitSender.ts in `service-todo-data` project.
 ```javascript
 //RabbitSender.ts
 export default function RabbitSender() {
@@ -554,7 +556,7 @@ export default function RabbitSender() {
 }
 ```
 
-Add these in system.ts file:
+Add these in `system.ts` file:
 ```javascript
   .add('rabbitConn', Amqp.Connection()).dependsOn({ component: 'config', source: 'rabbit', as: 'config' }, 'endpoints').ignorable()
   .add('rabbitChannel', Amqp.Channel()).dependsOn({ component: 'rabbitConn', as: 'connection' }).ignorable()
