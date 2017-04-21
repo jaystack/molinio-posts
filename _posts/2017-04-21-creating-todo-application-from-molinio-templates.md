@@ -22,7 +22,7 @@ Molinio provides a great ability to create a skeleton of a project (template) us
 > service-todo-data: [link](https://github.com/norbertnemeth/service-todo-data)
 > service-todo-logger: [link](https://github.com/norbertnemeth/service-todo-logger)
 
->  **Extra:** Open TODO microservice project in Molinio with this productManifest file: [link](https://github.com/jaystack/molinio-productdefinitions/tree/master/Todo)
+>  **Extra:** Open TODO microservice product in Molinio with this productManifest file: [link](https://github.com/jaystack/molinio-productdefinitions/tree/master/Todo)
 
 ### First steps
 As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the `Start Page` and choose the `Select folder and Create project`. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick `React Application (TS)` template. Fill the fields as it is seen below:
