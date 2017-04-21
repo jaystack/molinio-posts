@@ -17,9 +17,12 @@ categories:
 
 ### Introduction
 In Molinio, we can build our own microservices application. With help of templates we can create projects that use React, Amqp and Rest library in a few moments, in JavaScript and TypeScript languages.. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
-> link:
-> links:
-> inks:
+> **GitHub:**
+> app-todo: [link](https://github.com/norbertnemeth/app-todo)
+> service-todo-data: [link](https://github.com/norbertnemeth/service-todo-data)
+> service-todo-logger: [link](https://github.com/norbertnemeth/service-todo-logger)
+
+>  **Extra:** Open TODO microservice project in Molinio with this productManifest file: [link](https://github.com/norbertnemeth/service-todo-logger)
 
 ### First steps
 As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the „Start Page” and choose the „Select folder and Create project”. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick „React Application (TS)” template. Fill the fields as it is seen below:
