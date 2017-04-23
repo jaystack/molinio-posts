@@ -16,7 +16,7 @@ categories:
 ---
 
 ### Introduction
-Molinio provides a great ability to create a skeleton of a project (template) using ReactJS with AMQP or REST templates in both JavaScript or TypeScript languages. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
+Molinio provides a great ability to create the skeleton of a project (template) using ReactJS, AMQP or REST templates in both JavaScript or TypeScript languages. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
 > **GitHub:**
 > app-todo: [link](https://github.com/norbertnemeth/app-todo)
 > service-todo-data: [link](https://github.com/norbertnemeth/service-todo-data)
@@ -493,20 +493,20 @@ request('http://localhost:3001/get/todos', function(error, response, body) {
 
 Done! Now every modification will be saved to the database.
 
-### Save changes to history file
-Next project will save all incoming message to the history file. The type of this project is Amqp and this requires a RabbitMQ server. Firstly, create a RabbitMQ database named the `infra-todo-rabbitmq`.
+### Saving changes into a history file
+The next project will save all the incoming messages into the history file. The type of this project is Amqp and it requires a RabbitMQ server. Firstly, create a RabbitMQ server named `infra-todo-rabbitmq`.
 ![enter image description here](http://image.prntscr.com/image/2701983e4a194e8b98ac8704d2bb6b07.png)
 
-After the previous is done, make a Amqp project:
+After the server is done, make an Amqp project:
 ![enter image description here](http://image.prntscr.com/image/86f5a9fd4a8e47c7b27a6ca36f190703.png)
 
-Modify in config file the messaging params, to this:
+Modify messaging parameters in the config file, to this:
 ```javascript
 messaging: {
 	requestQueue: 'requests'  
 }
 ```
-Create a simple function into `Consumer.ts` file, wich will create the history files when it does not exists.
+Create a simple function into the `Consumer.ts` file. This function will create the history file if it does not exist.
 ```javascript
 async function investigateFileLocation() {  
 	const exists = fs.existsSync('./history.txt') if (!exists) {  
@@ -515,7 +515,7 @@ async function investigateFileLocation() {
 }
 ```
 
-Call this in the Start function.
+Use this in the Start function.
 ```javascript
 	await investigateFileLocation()
 ```
@@ -532,7 +532,7 @@ Implement a message save function.
 	fs.appendFileSync('./history.txt', moment().format('llll') + ' - ' + request.msg + '\r\n')  
 ```
 
-When either endpoints called, the send a message to Rabbit. Implement this code. We need to the `corpjs-amqp` module. (`npm i corpjs-amqp --save`) Create the file named RabbitSender.ts in `service-todo-data` project.
+We need this module: `corpjs-amqp` (`npm i corpjs-amqp --save`). When any of the endpoints are called, it sends a message to Rabbit. Create a file named `RabbitSender.ts` in `service-todo-data` project. 
 ```javascript
 //RabbitSender.ts
 export default function RabbitSender() {
@@ -556,19 +556,19 @@ export default function RabbitSender() {
 }
 ```
 
-Add these in `system.ts` file:
+Add these in the `system.ts` file:
 ```javascript
   .add('rabbitConn', Amqp.Connection()).dependsOn({ component: 'config', source: 'rabbit', as: 'config' }, 'endpoints').ignorable()
   .add('rabbitChannel', Amqp.Channel()).dependsOn({ component: 'rabbitConn', as: 'connection' }).ignorable()
   .add('rabbitSender', RabbitSender()).dependsOn('config', 'rabbitChannel', 'logger').ignorable()
 ```
 
-Add rabbitSender to Router dependencies.
+Add `rabbitSender` to the Router dependencies.
 ```javascript
 .add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb', 'rabbitSender')
 ```
 
-In config file set the RabbiMQ permission.
+In the config file set the RabbiMQ permission to:
 ```javascript
 rabbit: {
     connection: {
@@ -578,7 +578,8 @@ rabbit: {
 }
 ```
 
-Add mongodb to the Deps interface in Router.ts file and send some message to Rabbit. Example:
+Add `mongodb` to the Deps interface in the `Router.ts` file and let's send some message to Rabbit.
+For instance:
 ```javascript
 deps.rabbitSender.send('New task: ' + req.params['name'])
 
@@ -588,7 +589,7 @@ deps.rabbitSender.send(req.params['name'] + ' set to ' + status)
 deps.rabbitSender.send('Get todos list!')  
 ```
 
-Finnaly, set all dependency in Topology page. Look at the result!
+Finnaly, set each of the dependencies in the Topology page. Look at the results!
 ![enter image description here](http://image.prntscr.com/image/78f472b3277c4e46bf82d51a3514510f.png)
 
 ![enter image description here](http://image.prntscr.com/image/210a272a35d6470c95216a055146cfcd.png)
