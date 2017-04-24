@@ -3,7 +3,7 @@ ID: 2216
 post_title: >
   Creating Todo application from Molinio
   templates
-author: Nemeth
+author: Norbert Nemeth
 post_date: 2017-04-21 10:00:55
 post_excerpt: ""
 layout: post
