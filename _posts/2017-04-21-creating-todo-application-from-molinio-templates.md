@@ -29,15 +29,15 @@ Molinio provides a great ability to create the skeleton of a project (template) 
 
 <h3>First steps</h3>
 
-As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the <code>Start Page</code> and choose the <code>Select folder and Create project</code>. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick <code>React Application (TS)</code> template. Fill the fields as it is seen below:
+As a first step, let's create a simple TODO application that presents basic CRUD operations extended with filtering between tasks. Go to the <code>Start Page</code> and choose the <code>Select folder and Create project</code>. Select a folder for your projects, then you can start the creating first template. For this, we use React and Redux libraries. So let’s just pick <code>React Application (TS)</code> template. Fill the fields as it is seen below:
 
 <img src="http://image.prntscr.com/image/aeea8d5eed94448c8f982ea1f6b4c941.png" alt="enter image description here" />
 
-By clicking <code>Add Project</code> the template starts to form. The process may take a few minutes, because of the npm intallion. After the project is form run it with the <code>Start</code> button and select <code>Watch</code> option in <code>Build</code> button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with it’s icon and take a look at project just made.
+By clicking <code>Add Project</code> the template starts to form. The process may take a few minutes, because of the npm intallion. After the project form run it with the <code>Start</code> button and select <code>Watch</code> option in <code>Build</code> button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with its icon and take a look at project just made.
 
 <img src="http://image.prntscr.com/image/5aeb12c669f94a4f966b5278e75e1d04.png" alt="enter image description here" />
 
-This is a well constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: <a href="http://molin.io/the-graceful-microservice-lifecycle/">link</a>.) Delete these files in src folder: <code>./component/Counter.tsx</code>, <code>./component/Counter.scss</code>, <code>./reducers/counter.ts</code>. Firstly we need to make <code>actions</code> and <code>reducers</code>. Now place this code into <code>actionCreators.ts</code> file.
+This is a well-constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: <a href="http://molin.io/the-graceful-microservice-lifecycle/">link</a>.) Delete these files in src folder: <code>./component/Counter.tsx</code>, <code>./component/Counter.scss</code>, <code>./reducers/counter.ts</code>. Firstly we need to make <code>actions</code> and <code>reducers</code>. Now place this code into <code>actionCreators.ts</code> file.
 
 <pre><code class="javascript">let nextTodoId = 0;  
 export const addTodo = (text) =&gt; {  
@@ -132,7 +132,7 @@ export default combineReducers({
 
 </code></pre>
 
-Now we can make the components, three of them to be precise. <code>AddTodo</code> contains the form. <code>TodoList</code> contains the list of tasks. <code>Footer</code> contains a filter, that allows switching between tasks according to there state. Create these files into the <code>components</code> folder:
+Now we can make the components, three of them to be precise. <code>AddTodo</code> contains the form. <code>TodoList</code> contains the list of tasks. <code>Footer</code> contains a filter, that allows switching between tasks according to their state. Create these files into the <code>components</code> folder:
 
 <pre><code class="javascript">//AddTodo.tsx
 import {  
@@ -330,7 +330,7 @@ const FilterLink = connect(
 
 </code></pre>
 
-Finnaly setup these as it is below in the <code>Application.tsx</code> file:
+Finally setup these as it is below in the <code>Application.tsx</code> file:
 
 <pre><code class="javascript">require('./Application.scss')
 import * as React from 'react';
@@ -394,7 +394,7 @@ We need Bootstap CSS, therefore insert to following link into the head of <code>
 <pre><code class="javascript">&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
 </code></pre>
 
-In the browser you may see the application.
+A browser you may see the application.
 
 <blockquote>
   <strong>Hint:</strong> Use Earth icon in Molinio
