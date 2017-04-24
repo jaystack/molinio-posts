@@ -5,8 +5,7 @@ author: lacus
 post_date: 2016-12-19 10:31:02
 post_excerpt: metaseo_404_page
 layout: page
-permalink: >
-  http://localhost:8060/wp-meta-seo-404-page/
+permalink: http://molin.io/wp-meta-seo-404-page/
 published: true
 tags: [ ]
 categories: [ ]
