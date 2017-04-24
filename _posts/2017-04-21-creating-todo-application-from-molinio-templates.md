@@ -14,39 +14,41 @@ tags: [ ]
 categories:
   - Microservices
 ---
+<h3>Introduction</h3>
 
-### Introduction
 Molinio provides a great ability to create the skeleton of a project (template) using ReactJS, AMQP or REST templates in both JavaScript or TypeScript languages. Besides these projects, we created a feature to give you a fully configured, out-of-the-box RabbitMQ and MongoDB server, if necessary. So, with the help of the Molinio, let us show you how to create a simple TODO application. If you’re busy with reading, you can find the complete project on GitHub.
-> **GitHub:**
-> app-todo: [link](https://github.com/norbertnemeth/app-todo)
-> service-todo-data: [link](https://github.com/norbertnemeth/service-todo-data)
-> service-todo-logger: [link](https://github.com/norbertnemeth/service-todo-logger)
 
->  **Extra:** Open TODO microservice product in Molinio with this productManifest file: [link](https://github.com/jaystack/molinio-productdefinitions/tree/master/Todo)
+<blockquote>
+  <strong>GitHub:</strong>
+  app-todo: <a href="https://github.com/norbertnemeth/app-todo">link</a>
+  service-todo-data: <a href="https://github.com/norbertnemeth/service-todo-data">link</a>
+  service-todo-logger: <a href="https://github.com/norbertnemeth/service-todo-logger">link</a>
+  
+  <strong>Extra:</strong> Open TODO microservice product in Molinio with this productManifest file: <a href="https://github.com/jaystack/molinio-productdefinitions/tree/master/Todo">link</a>
+</blockquote>
 
-### First steps
-As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the `Start Page` and choose the `Select folder and Create project`. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick `React Application (TS)` template. Fill the fields as it is seen below:
+<h3>First steps</h3>
 
+As a first step, lets create a simple TODO applicattion that presents basic CRUD operations extended with filtering between tasks. Go to the <code>Start Page</code> and choose the <code>Select folder and Create project</code>. Select a folder for your projects, then you can start the creating first template. For this we use React and Redux libraries. So let’s just pick <code>React Application (TS)</code> template. Fill the fields as it is seen below:
 
-![enter image description here](http://image.prntscr.com/image/aeea8d5eed94448c8f982ea1f6b4c941.png)
+<img src="http://image.prntscr.com/image/aeea8d5eed94448c8f982ea1f6b4c941.png" alt="enter image description here" />
 
-By clicking `Add Project` the template starts to form. The process may take a few minutes, because of the npm intallion. After the project is form run it with the `Start` button and select `Watch` option in `Build` button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with it’s icon and take a look at project just made.
+By clicking <code>Add Project</code> the template starts to form. The process may take a few minutes, because of the npm intallion. After the project is form run it with the <code>Start</code> button and select <code>Watch</code> option in <code>Build</code> button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with it’s icon and take a look at project just made.
 
-![enter image description here](http://image.prntscr.com/image/5aeb12c669f94a4f966b5278e75e1d04.png)
+<img src="http://image.prntscr.com/image/5aeb12c669f94a4f966b5278e75e1d04.png" alt="enter image description here" />
 
-This is a well constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: [link](http://molin.io/the-graceful-microservice-lifecycle/).) Delete these files in src folder: `./component/Counter.tsx`, `./component/Counter.scss`, `./reducers/counter.ts`. Firstly we need to make `actions` and `reducers`. Now place this code into `actionCreators.ts` file.
+This is a well constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: <a href="http://molin.io/the-graceful-microservice-lifecycle/">link</a>.) Delete these files in src folder: <code>./component/Counter.tsx</code>, <code>./component/Counter.scss</code>, <code>./reducers/counter.ts</code>. Firstly we need to make <code>actions</code> and <code>reducers</code>. Now place this code into <code>actionCreators.ts</code> file.
 
-```javascript
-let nextTodoId = 0;  
-export const addTodo = (text) => {  
-	return {  
-		type: 'ADD_TODO',  
-	    id: nextTodoId++,  
+<pre><code class="javascript">let nextTodoId = 0;  
+export const addTodo = (text) =&gt; {  
+    return {  
+        type: 'ADD_TODO',  
+        id: nextTodoId++,  
         text  
     };  
 };
 
-export const loadTodo = (text, status) => {  
+export const loadTodo = (text, status) =&gt; {  
     return {  
         type: 'LOAD_TODO',  
         id: nextTodoId++,  
@@ -55,28 +57,27 @@ export const loadTodo = (text, status) => {
     };  
 }
 
-export const toggleTodo = (id) => {  
-	return {  
-		type: 'TOGGLE_TODO',  
+export const toggleTodo = (id) =&gt; {  
+    return {  
+        type: 'TOGGLE_TODO',  
         id  
     };  
 };  
 
-export const setVisibilityFilter = (filter) => {  
+export const setVisibilityFilter = (filter) =&gt; {  
     return {  
         type: 'SET_VISIBILITY_FILTER',  
         filter  
     };  
 };  
 
-```
+</code></pre>
 
-These are the actions we need. Create the new reducers to `./reducers/index.ts`
+These are the actions we need. Create the new reducers to <code>./reducers/index.ts</code>
 
-```javascript
-import { combineReducers } from 'redux'  
-const todo = (state, action) => {  
-	switch (action.type) {  
+<pre><code class="javascript">import { combineReducers } from 'redux'  
+const todo = (state, action) =&gt; {  
+    switch (action.type) {  
         case 'ADD_TODO':  
             return {  
                 id: action.id,  
@@ -94,99 +95,97 @@ const todo = (state, action) => {
                 return state;  
             }  
             return {
-	            ...state,
-	            completed: !state.completed  
-			};  
-			default:  
-	            return state;
-	        }
+                ...state,
+                completed: !state.completed  
+            };  
+            default:  
+                return state;
+            }
 };  
 
-const todos = (state = [], action) => {  
-	console.log("action", action)
-	switch (action.type) {  
-		case 'ADD_TODO':  
-			return [...state, todo(undefined, action)];  
-		case 'LOAD_TODO':  
-			return [...state, todo(undefined, action)];  
-		case 'TOGGLE_TODO':
-			return state.map(t => todo(t, action));  
-		default:  
-			return state;  
-		}  
+const todos = (state = [], action) =&gt; {  
+    console.log("action", action)
+    switch (action.type) {  
+        case 'ADD_TODO':  
+            return [...state, todo(undefined, action)];  
+        case 'LOAD_TODO':  
+            return [...state, todo(undefined, action)];  
+        case 'TOGGLE_TODO':
+            return state.map(t =&gt; todo(t, action));  
+        default:  
+            return state;  
+        }  
 };
 
-const visibilityFilter = (state = 'SHOW_ALL', action) => {  
-	switch (action.type) {  
-		case 'SET_VISIBILITY_FILTER':  
-		return action.filter;  
-		default:  
-			return state;  
-		}
+const visibilityFilter = (state = 'SHOW_ALL', action) =&gt; {  
+    switch (action.type) {  
+        case 'SET_VISIBILITY_FILTER':  
+        return action.filter;  
+        default:  
+            return state;  
+        }
 };
 
 export default combineReducers({  
-	todos, visibilityFilter  
+    todos, visibilityFilter  
 });  
 
-```
+</code></pre>
 
-Now we can make the components, three of them to be precise. `AddTodo` contains the form. `TodoList` contains the list of tasks. `Footer` contains a filter, that allows switching between tasks according to there state. Create these files into the `components` folder:
+Now we can make the components, three of them to be precise. <code>AddTodo</code> contains the form. <code>TodoList</code> contains the list of tasks. <code>Footer</code> contains a filter, that allows switching between tasks according to there state. Create these files into the <code>components</code> folder:
 
-```javascript
-//AddTodo.tsx
+<pre><code class="javascript">//AddTodo.tsx
 import {  
-	connect  
+    connect  
 }  
 from 'react-redux';
 import * as React from ’react’
 import { addTodo } from '../actionCreators'
-class AddTodo extends React.Component < any, any > {  
-	constructor() {  
-		super()
-		this.state = {  
-			input: ""  
-		}
-	}
-	  
-	handleChange(event) {  
-		this.setState({  
-			input: event.target.value  
-		})  
-	}
-	  
+class AddTodo extends React.Component &lt; any, any &gt; {  
+    constructor() {  
+        super()
+        this.state = {  
+            input: ""  
+        }
+    }
+
+    handleChange(event) {  
+        this.setState({  
+            input: event.target.value  
+        })  
+    }
+
   render() {
-    return <div>
-      <div className="form-inline">
-        <div className="form-group">
-          <input type="text" className="form-control" value={this.state.input}
-            onChange={this.handleChange.bind(this)} placeholder="New Task" />
-        </div>
-        <button className="btn btn-primary" onClick={() => {
+    return &lt;div&gt;
+      &lt;div className="form-inline"&gt;
+        &lt;div className="form-group"&gt;
+          &lt;input type="text" className="form-control" value={this.state.input}
+            onChange={this.handleChange.bind(this)} placeholder="New Task" /&gt;
+        &lt;/div&gt;
+        &lt;button className="btn btn-primary" onClick={() =&gt; {
           this.props.dispatch(addTodo(this.state.input))
           this.setState({ input: "" })
-        }}>
+        }}&gt;
           Add Todo
-        </button>
-      </div>
-    </div>
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   }
 
 }
 
 export default connect()(AddTodo);
 
-```
+</code></pre>
 
-```javascript
-//TodoList.tsx
+<pre><code class="javascript">//TodoList.tsx
 import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleTodo } from '../actionCreators';
 
-const Todo = ({ onClick, completed, text }) => (
-    <li
+const Todo = ({ onClick, completed, text }) =&gt; (
+    &lt;li
         onClick={onClick}
         style={{
             textDecoration:
@@ -197,39 +196,39 @@ const Todo = ({ onClick, completed, text }) => (
         className={
             completed ? 'completed todo' : 'todo'
         }
-    >
+    &gt;
         {text}
-    </li >
+    &lt;/li &gt;
 );
 
-const TodoList = ({ todos, onTodoClick }) => (
-    <ul>
-        {todos.map(todo =>
-            <Todo
+const TodoList = ({ todos, onTodoClick }) =&gt; (
+    &lt;ul&gt;
+        {todos.map(todo =&gt;
+            &lt;Todo
                 key={todo.id}
                 {...todo}
-                onClick={() => onTodoClick(todo.id)}
-            />
+                onClick={() =&gt; onTodoClick(todo.id)}
+            /&gt;
         )}
-    </ul>
+    &lt;/ul&gt;
 );
 
-const getVisibleTodos = (todos, filter) => {
+const getVisibleTodos = (todos, filter) =&gt; {
     switch (filter) {
         case 'SHOW_ALL':
             return todos;
         case 'SHOW_COMPLETED':
             return todos.filter(
-                t => t.completed
+                t =&gt; t.completed
             );
         case 'SHOW_ACTIVE':
             return todos.filter(
-                t => !t.completed
+                t =&gt; !t.completed
             );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) =&gt; {
     return {
         todos: getVisibleTodos(
             state.todos,
@@ -237,9 +236,9 @@ const mapStateToProps = (state) => {
         )
     };
 };
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) =&gt; {
     return {
-        onTodoClick: (id) => {
+        onTodoClick: (id) =&gt; {
             dispatch(toggleTodo(id));
         }
     };
@@ -250,33 +249,32 @@ export default connect(
     mapDispatchToProps
 )(TodoList);
 
-```
+</code></pre>
 
-```javascript
-//Footer.tsx
+<pre><code class="javascript">//Footer.tsx
 import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { setVisibilityFilter } from '../actionCreators';
 
-export default class Footer extends React.Component<any, any> {
+export default class Footer extends React.Component&lt;any, any&gt; {
 
     render() {
-        return <p>
+        return &lt;p&gt;
             Show:
       {' '}
-            <FilterLink filter='SHOW_ALL'>
+            &lt;FilterLink filter='SHOW_ALL'&gt;
                 All
-      </FilterLink>
+      &lt;/FilterLink&gt;
             {', '}
-            <FilterLink filter='SHOW_ACTIVE'>
+            &lt;FilterLink filter='SHOW_ACTIVE'&gt;
                 Active
-      </FilterLink>
+      &lt;/FilterLink&gt;
             {', '}
-            <FilterLink filter='SHOW_COMPLETED'>
+            &lt;FilterLink filter='SHOW_COMPLETED'&gt;
                 Completed
-      </FilterLink>
-        </p>
+      &lt;/FilterLink&gt;
+        &lt;/p&gt;
     }
 }
 
@@ -284,27 +282,27 @@ const Link = ({
   active,
     children,
     onClick
-  }) => {
+  }) =&gt; {
     if (active) {
-        return <span>{children}</span>;
+        return &lt;span&gt;{children}&lt;/span&gt;;
     }
 
     return (
-        <a href='#'
-            onClick={e => {
+        &lt;a href='#'
+            onClick={e =&gt; {
                 e.preventDefault();
                 onClick();
             }}
-        >
+        &gt;
             {children}
-        </a>
+        &lt;/a&gt;
     );
 };
 
 const mapStateProps = (
     state,
     ownProps
-) => {
+) =&gt; {
     return {
         active:
         ownProps.filter ===
@@ -315,9 +313,9 @@ const mapStateProps = (
 const mapDispatchProps = (
     dispatch,
     ownProps
-) => {
+) =&gt; {
     return {
-        onClick: () => {
+        onClick: () =&gt; {
             dispatch(
                 setVisibilityFilter(ownProps.filter)
             );
@@ -330,36 +328,37 @@ const FilterLink = connect(
     mapDispatchProps
 )(Link);
 
-```
-Finnaly setup these as it is below in the `Application.tsx` file:
-```javascript
-require('./Application.scss')
+</code></pre>
+
+Finnaly setup these as it is below in the <code>Application.tsx</code> file:
+
+<pre><code class="javascript">require('./Application.scss')
 import * as React from 'react';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
 
-export default class Application extends React.Component<any, any> {
+export default class Application extends React.Component&lt;any, any&gt; {
   render() {
-    return <div className="container">
-      <h2>Todo Application</h2>
-      <div className="panel panel-success">
-        <div className="panel-heading">
-          <AddTodo />
-        </div>
-        <div className="panel-body">
-          <TodoList />
-        </div>
-        <Footer />
-      </div>
-    </div>
+    return &lt;div className="container"&gt;
+      &lt;h2&gt;Todo Application&lt;/h2&gt;
+      &lt;div className="panel panel-success"&gt;
+        &lt;div className="panel-heading"&gt;
+          &lt;AddTodo /&gt;
+        &lt;/div&gt;
+        &lt;div className="panel-body"&gt;
+          &lt;TodoList /&gt;
+        &lt;/div&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   }
 }
-```
+</code></pre>
 
-For the application look nice, insert to following into `Application.scss`.
-```javascript
-.application {
+For the application look nice, insert to following into <code>Application.scss</code>.
+
+<pre><code class="javascript">.application {
 
 }
 
@@ -388,69 +387,73 @@ button {
 li {
     list-style-type: circle;
 }
-```
-We need Bootstap CSS, therefore insert to following link into the head of `index.html`.
+</code></pre>
 
-```javascript
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-```
+We need Bootstap CSS, therefore insert to following link into the head of <code>index.html</code>.
+
+<pre><code class="javascript">&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
+</code></pre>
+
 In the browser you may see the application.
 
-> **Hint:** Use Earth icon in Molinio
+<blockquote>
+  <strong>Hint:</strong> Use Earth icon in Molinio
+</blockquote>
 
-![enter image description here](http://image.prntscr.com/image/368b098c0c2c4b89b131cfeccecb1940.png)
+<img src="http://image.prntscr.com/image/368b098c0c2c4b89b131cfeccecb1940.png" alt="enter image description here" />
 
-### Storing tasks
+<h3>Storing tasks</h3>
 
-Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the `infra-todo-mongodb`. 
-![enter image description here](http://image.prntscr.com/image/7610dee07d9447a895d672e34d33e524.png)
-Create the Rest project too, named `service-todo-data` on the `3001` port. Do not forget to tick MongoDB as dependency.
-![enter image description here](http://image.prntscr.com/image/4699597d31f14e35af4c934f98d8caa9.png)
-Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: `npm i corpjs-endpoints --save`, `npm i corpjs-mongodb --save`. Afterwards import these into the “system.ts” file.
+Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the <code>infra-todo-mongodb</code>. 
+<img src="http://image.prntscr.com/image/7610dee07d9447a895d672e34d33e524.png" alt="enter image description here" />
+Create the Rest project too, named <code>service-todo-data</code> on the <code>3001</code> port. Do not forget to tick MongoDB as dependency.
+<img src="http://image.prntscr.com/image/4699597d31f14e35af4c934f98d8caa9.png" alt="enter image description here" />
+Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: <code>npm i corpjs-endpoints --save</code>, <code>npm i corpjs-mongodb --save</code>. Afterwards import these into the “system.ts” file.
 
-> **Hint:** In Molinio by clicking the console icon, the console opens in the project
- 
-```javascript
-.add('endpoints', Endpoints()).dependsOn({ component: 'config', source: 'endpoints', as: 'config' })
+<blockquote>
+  <strong>Hint:</strong> In Molinio by clicking the console icon, the console opens in the project
+</blockquote>
+
+<pre><code class="javascript">.add('endpoints', Endpoints()).dependsOn({ component: 'config', source: 'endpoints', as: 'config' })
 .add('mongodb', MongoDb()).dependsOn('endpoints', { component: 'config', source: 'mongodb', as: 'config' })
-```
+</code></pre>
 
 Add MongoDB to Routers dependencies.
-```javascript
-.add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb')
-```
+
+<pre><code class="javascript">.add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb')
+</code></pre>
 
 Add these to complete the config file (./config/default.js)
-```javascript
-mongodb: {
+
+<pre><code class="javascript">mongodb: {
     db: "todo"
 },
 endpoints: {
     endpointsFilePath: "system-endpoints.json"
 }
-```
+</code></pre>
 
 Next up “Router.ts”. Add mongodb to the Deps interface.
-```javascript
-interface Deps {
+
+<pre><code class="javascript">interface Deps {
   config: any
   logger: winston.LoggerInstance
   app: express.Application
   mongodb: any
   rabbitSender: any
 }
-```
+</code></pre>
 
 Create a MongoDB collection in the start function and insert the endpoints to the code after the userCollecton variable.
-```javascript
-const usersCollection = deps.mongodb.collection('TodoList')
-deps.app.get('/set/newTodo/:name', (req, res, next) => {
+
+<pre><code class="javascript">const usersCollection = deps.mongodb.collection('TodoList')
+deps.app.get('/set/newTodo/:name', (req, res, next) =&gt; {
   res.setHeader('Access-Control-Allow-Origin', '*')
   usersCollection.insertOne({ "Name": req.params['name'], "Completed": false })
   res.sendStatus(200)
 })
 
-deps.app.get('/set/ready/:name/:status', (req, res, next) => {
+deps.app.get('/set/ready/:name/:status', (req, res, next) =&gt; {
   res.setHeader('Access-Control-Allow-Origin', '*')
   try {
     usersCollection.updateOne(
@@ -463,84 +466,90 @@ deps.app.get('/set/ready/:name/:status', (req, res, next) => {
   res.sendStatus(200)
 })
 
-deps.app.get('/get/todos', (req, res) => {
+deps.app.get('/get/todos', (req, res) =&gt; {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype')
   usersCollection.find().toArray()
-    .then(results => {
+    .then(results =&gt; {
       res.setHeader('Content-Type', 'application/json');
       res.json(results)
     })
-    .catch(err => res.sendStatus(500))
+    .catch(err =&gt; res.sendStatus(500))
 })
-```
+</code></pre>
 
-As the last step, use these endpoints in the `app-todo` project. Insert these codes after the `ADD_TODO` and `TOGGLE_TODO` events:
-```javascript
-request.get('http://localhost:3001/set/ready/' + state.text + "/" + !state.completed)  //TOGLE_TODO
+As the last step, use these endpoints in the <code>app-todo</code> project. Insert these codes after the <code>ADD_TODO</code> and <code>TOGGLE_TODO</code> events:
+
+<pre><code class="javascript">request.get('http://localhost:3001/set/ready/' + state.text + "/" + !state.completed)  //TOGLE_TODO
 request.get('http://localhost:3001/set/newTodo/' + action.text)  //ADD_TODO
-```
-Put this code to `index.tsx` file. When the application starts, this code will load in tasks from the database.
-```javascript
-request('http://localhost:3001/get/todos', function(error, response, body) {  
-	if (error) return
-	const todoList = JSON.parse(body) todoList.map((item, idx) => {  
-		store.dispatch(loadTodo(item.Name, item.Completed))  
-	})  
+</code></pre>
+
+Put this code to <code>index.tsx</code> file. When the application starts, this code will load in tasks from the database.
+
+<pre><code class="javascript">request('http://localhost:3001/get/todos', function(error, response, body) {  
+    if (error) return
+    const todoList = JSON.parse(body) todoList.map((item, idx) =&gt; {  
+        store.dispatch(loadTodo(item.Name, item.Completed))  
+    })  
 });  
-```
+</code></pre>
 
 Done! Now every modification will be saved to the database.
 
-### Saving changes into a history file
-The next project will save all the incoming messages into the history file. The type of this project is Amqp and it requires a RabbitMQ server. Firstly, create a RabbitMQ server named `infra-todo-rabbitmq`.
-![enter image description here](http://image.prntscr.com/image/2701983e4a194e8b98ac8704d2bb6b07.png)
+<h3>Saving changes into a history file</h3>
+
+The next project will save all the incoming messages into the history file. The type of this project is Amqp and it requires a RabbitMQ server. Firstly, create a RabbitMQ server named <code>infra-todo-rabbitmq</code>.
+<img src="http://image.prntscr.com/image/2701983e4a194e8b98ac8704d2bb6b07.png" alt="enter image description here" />
 
 After the server is done, make an Amqp project:
-![enter image description here](http://image.prntscr.com/image/86f5a9fd4a8e47c7b27a6ca36f190703.png)
+<img src="http://image.prntscr.com/image/86f5a9fd4a8e47c7b27a6ca36f190703.png" alt="enter image description here" />
 
 Modify messaging parameters in the config file, to this:
-```javascript
-messaging: {
-	requestQueue: 'requests'  
+
+<pre><code class="javascript">messaging: {
+    requestQueue: 'requests'  
 }
-```
-Create a simple function into the `Consumer.ts` file. This function will create the history file if it does not exist.
-```javascript
-async function investigateFileLocation() {  
-	const exists = fs.existsSync('./history.txt') if (!exists) {  
-		fs.closeSync(fs.openSync('./history.txt', 'w'));  
-	}
+</code></pre>
+
+Create a simple function into the <code>Consumer.ts</code> file. This function will create the history file if it does not exist.
+
+<pre><code class="javascript">async function investigateFileLocation() {  
+    const exists = fs.existsSync('./history.txt') if (!exists) {  
+        fs.closeSync(fs.openSync('./history.txt', 'w'));  
+    }
 }
-```
+</code></pre>
 
 Use this in the Start function.
-```javascript
-	await investigateFileLocation()
-```
+
+<pre><code class="javascript">    await investigateFileLocation()
+</code></pre>
 
 Modify these rows:
-```javascript
-  // await deps.channel.assertExchange(deadLetterExchange, 'topic', { durable: true })
+
+<pre><code class="javascript">  // await deps.channel.assertExchange(deadLetterExchange, 'topic', { durable: true })
   await deps.channel.assertQueue(requestQueue)
-```
+</code></pre>
+
 Implement a message save function.
- > If necessary install “moment” module. “npm i moment --save” 
 
-```javascript
-	fs.appendFileSync('./history.txt', moment().format('llll') + ' - ' + request.msg + '\r\n')  
-```
+<blockquote>
+  If necessary install “moment” module. “npm i moment --save”
+</blockquote>
 
-We need this module: `corpjs-amqp` (`npm i corpjs-amqp --save`). When any of the endpoints are called, it sends a message to Rabbit. Create a file named `RabbitSender.ts` in `service-todo-data` project. 
-```javascript
-//RabbitSender.ts
+<pre><code class="javascript">    fs.appendFileSync('./history.txt', moment().format('llll') + ' - ' + request.msg + 'rn')  
+</code></pre>
+
+We need this module: <code>corpjs-amqp</code> (<code>npm i corpjs-amqp --save</code>). When any of the endpoints are called, it sends a message to Rabbit. Create a file named <code>RabbitSender.ts</code> in <code>service-todo-data</code> project.
+
+<pre><code class="javascript">//RabbitSender.ts
 export default function RabbitSender() {
   return {
     async start({ config, rabbitChannel: channel, logger }) {
       return {
         send: async function send(message: string) {
-          const loggerQueueName = (config.messaging && config.messaging.loggerRequestQueueName) || 'requests'
+          const loggerQueueName = (config.messaging &amp;&amp; config.messaging.loggerRequestQueueName) || 'requests'
           if (channel) {
             try {
               await channel.assertQueue(loggerQueueName)
@@ -554,44 +563,44 @@ export default function RabbitSender() {
     }
   }
 }
-```
+</code></pre>
 
-Add these in the `system.ts` file:
-```javascript
-  .add('rabbitConn', Amqp.Connection()).dependsOn({ component: 'config', source: 'rabbit', as: 'config' }, 'endpoints').ignorable()
+Add these in the <code>system.ts</code> file:
+
+<pre><code class="javascript">  .add('rabbitConn', Amqp.Connection()).dependsOn({ component: 'config', source: 'rabbit', as: 'config' }, 'endpoints').ignorable()
   .add('rabbitChannel', Amqp.Channel()).dependsOn({ component: 'rabbitConn', as: 'connection' }).ignorable()
   .add('rabbitSender', RabbitSender()).dependsOn('config', 'rabbitChannel', 'logger').ignorable()
-```
+</code></pre>
 
-Add `rabbitSender` to the Router dependencies.
-```javascript
-.add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb', 'rabbitSender')
-```
+Add <code>rabbitSender</code> to the Router dependencies.
+
+<pre><code class="javascript">.add('router', Router()).dependsOn('config', 'logger', 'app', 'mongodb', 'rabbitSender')
+</code></pre>
 
 In the config file set the RabbiMQ permission to:
-```javascript
-rabbit: {
+
+<pre><code class="javascript">rabbit: {
     connection: {
         username: 'guest',
         password: 'guest'
     }
 }
-```
+</code></pre>
 
-Add `mongodb` to the Deps interface in the `Router.ts` file and let's send some message to Rabbit.
+Add <code>mongodb</code> to the Deps interface in the <code>Router.ts</code> file and let's send some message to Rabbit.
 For instance:
-```javascript
-deps.rabbitSender.send('New task: ' + req.params['name'])
+
+<pre><code class="javascript">deps.rabbitSender.send('New task: ' + req.params['name'])
 
 const status = req.params['status'] === 'true' ? "complete" : "uncompleted"  
 deps.rabbitSender.send(req.params['name'] + ' set to ' + status)
 
 deps.rabbitSender.send('Get todos list!')  
-```
+</code></pre>
 
 Finnaly, set each of the dependencies in the Topology page. Look at the results!
-![enter image description here](http://image.prntscr.com/image/78f472b3277c4e46bf82d51a3514510f.png)
+<img src="http://image.prntscr.com/image/78f472b3277c4e46bf82d51a3514510f.png" alt="enter image description here" />
 
-![enter image description here](http://image.prntscr.com/image/210a272a35d6470c95216a055146cfcd.png)
+<img src="http://image.prntscr.com/image/210a272a35d6470c95216a055146cfcd.png" alt="enter image description here" />
 
-![enter image description here](http://image.prntscr.com/image/567a835c043245cab3df0b4187b35fc2.png)
+<img src="http://image.prntscr.com/image/567a835c043245cab3df0b4187b35fc2.png" alt="enter image description here" />
