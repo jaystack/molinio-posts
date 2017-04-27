@@ -8,3 +8,4 @@ layout: page
 permalink: http://localhost:8060/doc/
 published: true
 ---
+Lorem ipsum
