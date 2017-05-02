@@ -8,4 +8,4 @@ layout: page
 permalink: http://localhost:8060/pricing-plans/
 published: true
 ---
-[table id=1 /]
+[table id=pricing /]
