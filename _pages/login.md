@@ -8,4 +8,4 @@ layout: page
 permalink: http://localhost:8060/login/
 published: true
 ---
-[wpmem_form login]
+Lorem ipsum
