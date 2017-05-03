@@ -8,3 +8,4 @@ layout: page
 permalink: http://localhost:8060/profile/
 published: true
 ---
+[wpmem_profile]
