@@ -8,3 +8,4 @@ layout: page
 permalink: http://localhost:8060/register/
 published: true
 ---
+[wpmem_form register]
