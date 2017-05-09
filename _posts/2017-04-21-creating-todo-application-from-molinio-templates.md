@@ -31,11 +31,11 @@ Molinio provides a great ability to create the skeleton of a project (template) 
 
 As a first step, let's create a simple TODO application that presents basic CRUD operations extended with filtering between tasks. Go to the <code>Start Page</code> and choose the <code>Select folder and Create project</code>. Select a folder for your projects, then you can start the creating first template. For this, we use React and Redux libraries. So let’s just pick <code>React Application (TS)</code> template. Fill the fields as it is seen below:
 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/aeea8d5eed94448c8f982ea1f6b4c941.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-01.png" alt="enter image description here" />
 
 By clicking <code>Add Project</code> the template starts to form. The process may take a few minutes, because of the npm intallion. After the project form run it with the <code>Start</code> button and select <code>Watch</code> option in <code>Build</code> button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with its icon and take a look at project just made.
 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/5aeb12c669f94a4f966b5278e75e1d04.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-02.png" alt="enter image description here" />
 
 This is a well-constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: <a href="http://molin.io/the-graceful-microservice-lifecycle/">link</a>.) Delete these files in src folder: <code>./component/Counter.tsx</code>, <code>./component/Counter.scss</code>, <code>./reducers/counter.ts</code>. Firstly we need to make <code>actions</code> and <code>reducers</code>. Now place this code into <code>actionCreators.ts</code> file.
 
@@ -400,7 +400,7 @@ A browser you may see the application.
   <strong>Hint:</strong> Use Earth icon in Molinio
 </blockquote>
 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/368b098c0c2c4b89b131cfeccecb1940.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-03.png" alt="enter image description here" />
 
 <h3>Storing tasks</h3>
 
