@@ -31,11 +31,11 @@ Molinio provides a great ability to create the skeleton of a project (template) 
 
 As a first step, let's create a simple TODO application that presents basic CRUD operations extended with filtering between tasks. Go to the <code>Start Page</code> and choose the <code>Select folder and Create project</code>. Select a folder for your projects, then you can start the creating first template. For this, we use React and Redux libraries. So let’s just pick <code>React Application (TS)</code> template. Fill the fields as it is seen below:
 
-<img src="http://image.prntscr.com/image/aeea8d5eed94448c8f982ea1f6b4c941.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/aeea8d5eed94448c8f982ea1f6b4c941.png" alt="enter image description here" />
 
 By clicking <code>Add Project</code> the template starts to form. The process may take a few minutes, because of the npm intallion. After the project form run it with the <code>Start</code> button and select <code>Watch</code> option in <code>Build</code> button. This feature is going to automatize the build itself. If you click the Earth icon, the Counter application opens in your browser. Let’s open the Visual Studio Code with its icon and take a look at project just made.
 
-<img src="http://image.prntscr.com/image/5aeb12c669f94a4f966b5278e75e1d04.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/5aeb12c669f94a4f966b5278e75e1d04.png" alt="enter image description here" />
 
 This is a well-constructed project, in which work can be started. The base of the project is CorpJS (About CorpJS: <a href="http://molin.io/the-graceful-microservice-lifecycle/">link</a>.) Delete these files in src folder: <code>./component/Counter.tsx</code>, <code>./component/Counter.scss</code>, <code>./reducers/counter.ts</code>. Firstly we need to make <code>actions</code> and <code>reducers</code>. Now place this code into <code>actionCreators.ts</code> file.
 
@@ -400,14 +400,14 @@ A browser you may see the application.
   <strong>Hint:</strong> Use Earth icon in Molinio
 </blockquote>
 
-<img src="http://image.prntscr.com/image/368b098c0c2c4b89b131cfeccecb1940.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/368b098c0c2c4b89b131cfeccecb1940.png" alt="enter image description here" />
 
 <h3>Storing tasks</h3>
 
 Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the <code>infra-todo-mongodb</code>. 
-<img src="http://image.prntscr.com/image/7610dee07d9447a895d672e34d33e524.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/7610dee07d9447a895d672e34d33e524.png" alt="enter image description here" />
 Create the Rest project too, named <code>service-todo-data</code> on the <code>3001</code> port. Do not forget to tick MongoDB as dependency.
-<img src="http://image.prntscr.com/image/4699597d31f14e35af4c934f98d8caa9.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/4699597d31f14e35af4c934f98d8caa9.png" alt="enter image description here" />
 Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: <code>npm i corpjs-endpoints --save</code>, <code>npm i corpjs-mongodb --save</code>. Afterwards import these into the “system.ts” file.
 
 <blockquote>
@@ -500,10 +500,10 @@ Done! Now every modification will be saved to the database.
 <h3>Saving changes into a history file</h3>
 
 The next project will save all the incoming messages into the history file. The type of this project is Amqp and it requires a RabbitMQ server. Firstly, create a RabbitMQ server named <code>infra-todo-rabbitmq</code>.
-<img src="http://image.prntscr.com/image/2701983e4a194e8b98ac8704d2bb6b07.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/2701983e4a194e8b98ac8704d2bb6b07.png" alt="enter image description here" />
 
 After the server is done, make an Amqp project:
-<img src="http://image.prntscr.com/image/86f5a9fd4a8e47c7b27a6ca36f190703.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/86f5a9fd4a8e47c7b27a6ca36f190703.png" alt="enter image description here" />
 
 Modify messaging parameters in the config file, to this:
 
@@ -599,8 +599,8 @@ deps.rabbitSender.send('Get todos list!')
 </code></pre>
 
 Finnaly, set each of the dependencies in the Topology page. Look at the results!
-<img src="http://image.prntscr.com/image/78f472b3277c4e46bf82d51a3514510f.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/78f472b3277c4e46bf82d51a3514510f.png" alt="enter image description here" />
 
-<img src="http://image.prntscr.com/image/210a272a35d6470c95216a055146cfcd.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/210a272a35d6470c95216a055146cfcd.png" alt="enter image description here" />
 
-<img src="http://image.prntscr.com/image/567a835c043245cab3df0b4187b35fc2.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/567a835c043245cab3df0b4187b35fc2.png" alt="enter image description here" />
