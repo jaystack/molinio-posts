@@ -405,9 +405,9 @@ A browser you may see the application.
 <h3>Storing tasks</h3>
 
 Refreshing the browser makes tasks disappear. Preventing this let’s male a Rest project. The Rest project stores the tasks to the Mongo database, thus making them available later. So firstly, create a Mongo database named the <code>infra-todo-mongodb</code>. 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/7610dee07d9447a895d672e34d33e524.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-04.png" alt="enter image description here" />
 Create the Rest project too, named <code>service-todo-data</code> on the <code>3001</code> port. Do not forget to tick MongoDB as dependency.
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/4699597d31f14e35af4c934f98d8caa9.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-05.png" alt="enter image description here" />
 Let’s open the Visual Studio Code with it’s icon and take a look at project just made. We need to two new CorpJS modules. Install them with these commands: <code>npm i corpjs-endpoints --save</code>, <code>npm i corpjs-mongodb --save</code>. Afterwards import these into the “system.ts” file.
 
 <blockquote>
@@ -500,10 +500,10 @@ Done! Now every modification will be saved to the database.
 <h3>Saving changes into a history file</h3>
 
 The next project will save all the incoming messages into the history file. The type of this project is Amqp and it requires a RabbitMQ server. Firstly, create a RabbitMQ server named <code>infra-todo-rabbitmq</code>.
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/2701983e4a194e8b98ac8704d2bb6b07.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-06.png" alt="enter image description here" />
 
 After the server is done, make an Amqp project:
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/86f5a9fd4a8e47c7b27a6ca36f190703.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-07.png" alt="enter image description here" />
 
 Modify messaging parameters in the config file, to this:
 
@@ -599,8 +599,8 @@ deps.rabbitSender.send('Get todos list!')
 </code></pre>
 
 Finnaly, set each of the dependencies in the Topology page. Look at the results!
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/78f472b3277c4e46bf82d51a3514510f.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-08.png" alt="enter image description here" />
 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/210a272a35d6470c95216a055146cfcd.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-09.png" alt="enter image description here" />
 
-<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/567a835c043245cab3df0b4187b35fc2.png" alt="enter image description here" />
+<img src="https://raw.githubusercontent.com/jaystack/molinio-posts/master/_media/todo-10.png" alt="enter image description here" />
