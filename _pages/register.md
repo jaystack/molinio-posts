@@ -1,11 +1,13 @@
 ---
-ID: 2289
+ID: 2270
 post_title: Register
 author: lacus
-post_date: 2017-05-03 13:44:30
+post_date: 2017-05-09 13:16:54
 post_excerpt: ""
 layout: page
-permalink: http://localhost:8060/register/
+permalink: http://molin.io/register/
 published: true
+tags: [ ]
+categories: [ ]
 ---
 [wpmem_form register]

@@ -1,11 +1,13 @@
 ---
-ID: 2249
+ID: 2255
 post_title: First steps with Molinio
 author: lacus
-post_date: 2017-04-27 13:34:00
+post_date: 2017-05-09 13:16:54
 post_excerpt: ""
 layout: page
 permalink: >
-  http://localhost:8060/doc/first-steps-with-molinio/
+  http://molin.io/first-steps-with-molinio/
 published: true
+tags: [ ]
+categories: [ ]
 ---

@@ -1,11 +1,12 @@
 ---
-ID: 2259
+ID: 2247
 post_title: Change code
 author: lacus
-post_date: 2017-04-27 13:35:45
+post_date: 2017-05-09 13:16:54
 post_excerpt: ""
 layout: page
-permalink: >
-  http://localhost:8060/doc/first-steps-with-molinio/open-up-a-sample-project/change-code/
+permalink: http://molin.io/change-code/
 published: true
+tags: [ ]
+categories: [ ]
 ---
